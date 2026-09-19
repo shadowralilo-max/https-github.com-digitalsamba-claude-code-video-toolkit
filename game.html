@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+<title>Ponscat Bag Chase — Eat Memecoins, Dodge $RUG</title>
+<meta name="description" content="Play Ponscat Bag Chase: grow your cat by eating memecoins, dodge $RUG traps and FUD clouds, and chase a new high score." />
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css" />
+<link rel="stylesheet" href="css/game.css" />
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <a href="index.html#top" class="brand">
+      <img src="assets/favicon.svg" alt="" />
+      <span>Ponscat <span class="ticker">$PCAT</span></span>
+    </a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html#dashboard">Chart</a></li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#how-to-buy">How to Buy</a></li>
+      <li><a href="game.html" class="active-link">Play</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="index.html#how-to-buy" class="btn btn-outline">How to Buy</a>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu">&#9776;</button>
+    </div>
+  </div>
+</nav>
+
+<header class="game-intro">
+  <div class="wrap">
+    <div class="pill"><span class="dot"></span> Now playable</div>
+    <h1>Bag Chase: eat memecoins, dodge <span class="rug-word">$RUG</span>.</h1>
+    <p class="lede">
+      Grow Ponscat from a scrawny kitten into a legendary chonk. Coins make you bigger.
+      <span class="rug-word">$RUG</span> costs you a life. FUD clouds slow you down. Pure vibes, no utility.
+    </p>
+  </div>
+</header>
+
+<section class="game-stage-section">
+  <div class="wrap">
+    <div class="game-shell">
+      <div class="hud">
+        <div class="hud-group">
+          <div class="hud-label">Score</div>
+          <div class="hud-value" id="hud-score">0</div>
+        </div>
+        <div class="hud-group">
+          <div class="hud-label">Best</div>
+          <div class="hud-value" id="hud-best">0</div>
+        </div>
+        <div class="hud-group hud-grow">
+          <div class="hud-label">Rank</div>
+          <div class="hud-value" id="hud-level">Kitten</div>
+        </div>
+        <div class="hud-group">
+          <div class="hud-label">Lives</div>
+          <div class="hud-value" id="hud-lives">🐾🐾🐾</div>
+        </div>
+        <div class="hud-group">
+          <div class="hud-label">Time</div>
+          <div class="hud-value" id="hud-time">0s</div>
+        </div>
+      </div>
+
+      <div class="stage-wrap" id="stage-wrap">
+        <canvas id="game-canvas"></canvas>
+
+        <div class="overlay" id="overlay-start">
+          <div class="overlay-card">
+            <h2>Ready to bag chase?</h2>
+            <p>Move with <strong>WASD / Arrow keys</strong>, or drag with your mouse / finger.</p>
+            <ul class="legend">
+              <li><span class="swatch" style="background:#f2a93b"></span> <strong>$DOGO</strong> — common, small growth</li>
+              <li><span class="swatch" style="background:#3ddc84"></span> <strong>$FROG</strong> — uncommon, better gains</li>
+              <li><span class="swatch" style="background:#6fb1ff"></span> <strong>$MOON</strong> — rare, jittery, big gains</li>
+              <li><span class="swatch" style="background:#1ef07a; box-shadow:0 0 8px #1ef07a"></span> <strong>$PCAT</strong> — legendary, huge gains</li>
+              <li><span class="swatch swatch-rug"></span> <strong>$RUG</strong> — looks like a coin, costs a life. Dodge it!</li>
+              <li><span class="swatch swatch-fud">☁</span> <strong>FUD cloud</strong> — no damage, just slows you down</li>
+            </ul>
+            <button class="btn btn-primary btn-lg" id="btn-start">Play</button>
+          </div>
+        </div>
+
+        <div class="overlay hidden" id="overlay-pause">
+          <div class="overlay-card">
+            <h2>Paused</h2>
+            <p>Charts don't stop, but you can.</p>
+            <button class="btn btn-primary btn-lg" id="btn-resume">Resume</button>
+          </div>
+        </div>
+
+        <div class="overlay hidden" id="overlay-gameover">
+          <div class="overlay-card">
+            <h2 id="gameover-title">Rugged.</h2>
+            <p id="gameover-sub">You got rug-pulled one too many times.</p>
+            <div class="final-stats">
+              <div><span id="final-score">0</span><small>Score</small></div>
+              <div><span id="final-level">Kitten</span><small>Rank reached</small></div>
+              <div><span id="final-best">0</span><small>Best score</small></div>
+            </div>
+            <button class="btn btn-primary btn-lg" id="btn-retry">Play Again</button>
+          </div>
+        </div>
+
+        <div class="level-toast hidden" id="level-toast"></div>
+      </div>
+
+      <p class="game-footnote">
+        🐾 For entertainment only — this game does not reflect real trading and eating actual
+        memecoins will not make your cat bigger. Please don't try that.
+      </p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-grid">
+    <div>
+      <div class="foot-brand">
+        <img src="assets/favicon.svg" alt="" />
+        <span>Ponscat <span class="ticker" style="color:var(--green)">$PCAT</span></span>
+      </div>
+      <p class="disclaimer">
+        $PCAT is a meme token with no intrinsic value or expectation of financial return.
+        It is intended for entertainment purposes only, same as this game. Cryptocurrency is
+        highly volatile and speculative — do your own research and never invest more than you
+        can afford to lose. Nothing on this site is financial advice.
+      </p>
+    </div>
+    <div class="socials">
+      <a href="index.html#community" class="btn btn-outline btn-sm">Join the Nation</a>
+    </div>
+  </div>
+</footer>
+
+<script src="js/config.js"></script>
+<script src="js/app.js"></script>
+<script src="js/game.js"></script>
+</body>
+</html>

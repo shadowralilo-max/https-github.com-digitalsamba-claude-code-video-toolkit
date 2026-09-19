@@ -13,11 +13,26 @@ change.
 
 ```
 index.html        # all page content/sections
+game.html          # "Bag Chase" mini-game page
 css/style.css      # dark theme, layout, responsive rules
+css/game.css       # game page/HUD/overlay styles
 js/config.js       # token info, social links, data source switch
 js/app.js          # wires config into the page + renders the chart
+js/game.js         # Bag Chase game engine (canvas, vanilla JS)
 assets/            # mascot SVG, favicon
 ```
+
+## Bag Chase (mini-game)
+
+`game.html` is a small 2D canvas game: grow Ponscat by eating memecoins.
+
+- **Move**: WASD / arrow keys, or drag with mouse/finger.
+- **Coins**: `$DOGO` (common), `$FROG` (uncommon), `$MOON` (rare, jittery),
+  `$PCAT` (legendary) — each grows the cat and adds to your score.
+- **`$RUG`**: disguised as a coin; touching it costs a life and some score.
+- **FUD clouds**: drifting hazards that slow you down (no damage).
+- 3 lives, endless mode, difficulty ramps over time, high score saved to
+  `localStorage`. No dependencies — plain `<canvas>` + vanilla JS.
 
 ## Running locally
 

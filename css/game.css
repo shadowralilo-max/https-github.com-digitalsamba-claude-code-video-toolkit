@@ -1,0 +1,196 @@
+/* Ponscat Bag Chase — game page styles (extends css/style.css) */
+
+.game-intro {
+  padding: 60px 0 30px;
+  text-align: center;
+}
+.game-intro .pill { margin: 0 auto 18px; }
+.game-intro h1 {
+  font-size: clamp(2rem, 4.4vw, 3rem);
+  line-height: 1.1;
+  margin: 0 0 16px;
+}
+.game-intro .lede {
+  color: var(--text-dim);
+  font-size: 1.05rem;
+  max-width: 56ch;
+  margin: 0 auto;
+}
+.rug-word { color: var(--red); font-weight: 700; }
+
+.game-stage-section {
+  padding: 10px 0 70px;
+  border-top: none;
+}
+
+.game-shell {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.hud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px 14px 0 0;
+  padding: 14px 18px;
+}
+.hud-group {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 70px;
+}
+.hud-group.hud-grow { flex-grow: 1; }
+.hud-label {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-dim);
+}
+.hud-value {
+  font-size: 1.05rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+#hud-lives { letter-spacing: 2px; }
+
+.stage-wrap {
+  position: relative;
+  border: 1px solid var(--border);
+  border-top: none;
+  border-radius: 0 0 14px 14px;
+  overflow: hidden;
+  background: radial-gradient(circle at 50% 0%, #141922 0%, #0b0d11 70%);
+  touch-action: none;
+}
+#game-canvas {
+  display: block;
+  width: 100%;
+  height: 520px;
+  cursor: crosshair;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(11, 13, 17, 0.82);
+  backdrop-filter: blur(3px);
+  z-index: 5;
+  padding: 20px;
+}
+.overlay.hidden { display: none; }
+
+.overlay-card {
+  max-width: 420px;
+  width: 100%;
+  text-align: center;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px 26px;
+}
+.overlay-card h2 { margin: 0 0 10px; font-size: 1.5rem; }
+.overlay-card p { color: var(--text-dim); margin: 0 0 18px; }
+
+.legend {
+  list-style: none;
+  margin: 0 0 22px;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+  text-align: left;
+  font-size: 0.85rem;
+  color: var(--text-dim);
+}
+.legend li { display: flex; align-items: center; gap: 10px; }
+.legend strong { color: var(--text); }
+.swatch {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: inline-block;
+}
+.swatch-rug {
+  background: repeating-conic-gradient(var(--red) 0deg 90deg, #7a1f1f 90deg 180deg);
+  border: 1px dashed var(--red);
+}
+.swatch-fud {
+  background: none;
+  color: var(--text-dim);
+  font-size: 1rem;
+  width: auto;
+  height: auto;
+}
+
+.btn-lg { padding: 12px 26px; font-size: 1rem; }
+
+.final-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 22px;
+}
+.final-stats div {
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px 6px;
+}
+.final-stats span {
+  display: block;
+  font-size: 1.2rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+.final-stats small {
+  color: var(--text-dim);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.level-toast {
+  position: absolute;
+  top: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--green);
+  color: #062114;
+  font-weight: 700;
+  padding: 8px 18px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  z-index: 6;
+  opacity: 0;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  pointer-events: none;
+  white-space: nowrap;
+}
+.level-toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(6px);
+}
+.level-toast.hidden { display: none; }
+
+.game-footnote {
+  color: var(--text-dim);
+  font-size: 0.78rem;
+  text-align: center;
+  margin: 14px 4px 0;
+}
+
+.nav-links a.active-link { color: var(--green); }
+
+@media (max-width: 640px) {
+  #game-canvas { height: 420px; }
+  .hud { padding: 10px 12px; gap: 8px; }
+  .hud-group { min-width: 56px; }
+  .hud-value { font-size: 0.9rem; }
+}
