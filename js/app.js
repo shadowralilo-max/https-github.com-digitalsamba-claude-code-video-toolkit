@@ -153,12 +153,16 @@
       "link-buy": cfg.LINKS.buy,
       "link-x-footer": cfg.LINKS.x,
       "link-telegram-footer": cfg.LINKS.telegram,
+      "link-game-nav": cfg.LINKS.game,
+      "link-game-hero": cfg.LINKS.game,
     };
     Object.entries(linkMap).forEach(([id, url]) => {
       const el = document.getElementById(id);
       if (!el) return;
       if (url) {
         el.href = url;
+        el.classList.remove("disabled");
+        el.removeAttribute("aria-disabled");
       } else {
         el.setAttribute("aria-disabled", "true");
         el.classList.add("disabled");

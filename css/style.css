@@ -387,7 +387,7 @@ section { padding: 70px 0; border-top: 1px solid var(--border); }
   transition: border-color 0.15s ease, color 0.15s ease;
 }
 .social-btn:hover { border-color: var(--green); color: var(--green); }
-.social-btn.disabled, .btn.disabled {
+.social-btn.disabled, .btn.disabled, .nav-links a.disabled {
   opacity: 0.4;
   cursor: not-allowed;
   pointer-events: none;

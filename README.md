@@ -9,30 +9,27 @@ dashboard (price, market cap, candlestick chart) that runs on mock data until
 the token launches, then switches to real on-chain data with a one-line config
 change.
 
+This repo holds two independent static sites:
+
+- **`/` (this site)** — the Ponscat marketing/landing page.
+- **`/bagchase`** — **Bag Chase**, a standalone Ponscat-branded 2D game
+  (grow the cat by eating memecoins, dodge `$RUG`) meant to be deployed on
+  its own domain or subdomain. See [`bagchase/README.md`](bagchase/README.md)
+  for details. The marketing site's nav/hero "Play" links point at it via
+  `LINKS.game` in `js/config.js` — fill that in once the game site is
+  deployed, and the buttons activate automatically (they render
+  disabled/greyed until then).
+
 ## Structure
 
 ```
 index.html        # all page content/sections
-game.html          # "Bag Chase" mini-game page
 css/style.css      # dark theme, layout, responsive rules
-css/game.css       # game page/HUD/overlay styles
 js/config.js       # token info, social links, data source switch
 js/app.js          # wires config into the page + renders the chart
-js/game.js         # Bag Chase game engine (canvas, vanilla JS)
 assets/            # mascot SVG, favicon
+bagchase/          # standalone "Bag Chase" game site (own README)
 ```
-
-## Bag Chase (mini-game)
-
-`game.html` is a small 2D canvas game: grow Ponscat by eating memecoins.
-
-- **Move**: WASD / arrow keys, or drag with mouse/finger.
-- **Coins**: `$DOGO` (common), `$FROG` (uncommon), `$MOON` (rare, jittery),
-  `$PCAT` (legendary) — each grows the cat and adds to your score.
-- **`$RUG`**: disguised as a coin; touching it costs a life and some score.
-- **FUD clouds**: drifting hazards that slow you down (no damage).
-- 3 lives, endless mode, difficulty ramps over time, high score saved to
-  `localStorage`. No dependencies — plain `<canvas>` + vanilla JS.
 
 ## Running locally
 
@@ -50,8 +47,8 @@ Edit `js/config.js`:
 
 1. Set `TOKEN.contractAddress` once the token is deployed — it appears in the
    hero CA box and enables the copy button automatically.
-2. Fill in `LINKS` (x, telegram, discord, dexscreener, buy) — disabled/greyed
-   social buttons activate automatically once a URL is present.
+2. Fill in `LINKS` (x, telegram, discord, dexscreener, buy, game) —
+   disabled/greyed buttons activate automatically once a URL is present.
 3. Set `DATA_SOURCE` to `"live"` and fill in `LIVE.chain` / `LIVE.pairAddress`
    (from the Dexscreener URL `dexscreener.com/<chain>/<pairAddress>`) to pull
    real price/market cap/liquidity/volume from Dexscreener's public API. The
@@ -67,4 +64,6 @@ above the stats.
 ## Deploying
 
 It's plain static files — deploy to GitHub Pages, Netlify, Vercel, Cloudflare
-Pages, or any static host by pointing it at this directory.
+Pages, or any static host by pointing it at this directory (the repo root,
+excluding `bagchase/`). Deploy `bagchase/` as its own separate site/project
+(ideally its own subdomain, e.g. `play.ponscat.com`) — see its README.

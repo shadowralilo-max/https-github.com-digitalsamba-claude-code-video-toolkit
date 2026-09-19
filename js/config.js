@@ -31,6 +31,7 @@ window.PONSCAT_CONFIG = {
     discord: "",
     dexscreener: "",
     buy: "",
+    game: "", // URL of the standalone Bag Chase game site (see /bagchase)
   },
 
   COMMUNITY_NAME: "Crypto Seekers Nation",

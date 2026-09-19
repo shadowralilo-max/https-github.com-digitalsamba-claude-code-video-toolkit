@@ -20,7 +20,6 @@
 
 .game-stage-section {
   padding: 10px 0 70px;
-  border-top: none;
 }
 
 .game-shell {
@@ -185,8 +184,6 @@
   text-align: center;
   margin: 14px 4px 0;
 }
-
-.nav-links a.active-link { color: var(--green); }
 
 @media (max-width: 640px) {
   #game-canvas { height: 420px; }
