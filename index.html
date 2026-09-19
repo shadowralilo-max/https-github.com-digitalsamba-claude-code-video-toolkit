@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ponscat ($PCAT) — The Cat That Watches The Charts</title>
+<meta name="description" content="Ponscat ($PCAT): a chart-obsessed cat and a community that likes green candles. No utility promises, no roadmap PDF. Built by Crypto Seekers Nation." />
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <a href="#top" class="brand">
+      <img src="assets/favicon.svg" alt="" />
+      <span>Ponscat <span class="ticker">$PCAT</span></span>
+    </a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#dashboard">Chart</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#tokenomics">Tokenomics</a></li>
+      <li><a href="#how-to-buy">How to Buy</a></li>
+      <li><a href="#memes">Memes</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="#how-to-buy" class="btn btn-outline">How to Buy</a>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu">&#9776;</button>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap" style="display:grid; grid-template-columns: 1.1fr 0.9fr; gap:40px; align-items:center;">
+    <div>
+      <div class="pill"><span class="dot"></span> Watching the charts 24/7</div>
+      <h1>The cat that watches the charts <span>so you don't have to.</span></h1>
+      <p class="lede">
+        <span data-token-name>Ponscat</span> (<span data-ticker>PCAT</span>) doesn't promise a
+        roadmap, a whitepaper, or "utility." It promises one thing: a cat, staring at candles,
+        rooting for green. Built by <span data-community-name>Crypto Seekers Nation</span>.
+      </p>
+      <div class="hero-actions">
+        <a href="#how-to-buy" class="btn btn-primary">How to Buy $PCAT</a>
+        <a id="link-dexscreener" href="#" target="_blank" rel="noopener" class="btn btn-outline">View Chart</a>
+      </div>
+      <div class="ca-box" id="ca-box">
+        <span>CA:</span> <code id="contract-address">loading...</code>
+        <button id="copy-ca" type="button">Copy</button>
+      </div>
+    </div>
+    <div class="hero-art">
+      <img src="assets/cat-mascot.svg" alt="Ponscat the mascot watching a green candlestick chart" />
+    </div>
+  </div>
+</header>
+
+<section class="dashboard" id="dashboard">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Live-ish Dashboard</div>
+      <h2>Ponscat is watching. Are you?</h2>
+      <p>Real-time-feeling stats for the coin that makes no promises about being real-time.</p>
+    </div>
+
+    <div class="mock-banner" id="mock-banner">
+      🐾 Demo data — $PCAT hasn't launched yet. This dashboard will switch to live on-chain data at launch.
+    </div>
+
+    <div class="stat-grid">
+      <div class="stat-card">
+        <div class="label">Price</div>
+        <div class="value" id="price-now">$0.00</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">24h Change</div>
+        <div class="value up" id="price-change">+0.00%</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">Market Cap</div>
+        <div class="value" id="stat-mcap">$0</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">Total Supply</div>
+        <div class="value" id="stat-supply">—</div>
+      </div>
+    </div>
+
+    <div class="chart-card">
+      <div class="chart-head">
+        <div>
+          <div class="label" style="color:var(--text-dim); font-size:0.8rem;"><span data-ticker>PCAT</span> / USD</div>
+          <div class="price-now" id="price-now-chart-label">Live chart (demo data)</div>
+        </div>
+        <div class="timeframe-tabs">
+          <button class="active">1H</button>
+          <button>24H</button>
+          <button>7D</button>
+          <button>30D</button>
+        </div>
+      </div>
+      <canvas id="price-chart"></canvas>
+      <div style="display:flex; gap:24px; margin-top:16px; flex-wrap:wrap; color:var(--text-dim); font-size:0.85rem;">
+        <div>Liquidity: <strong id="stat-liquidity" style="color:var(--text)">$0</strong></div>
+        <div>24h Volume: <strong id="stat-volume" style="color:var(--text)">$0</strong></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap grid-2">
+    <div>
+      <div class="eyebrow" style="color:var(--green); font-weight:700; font-size:0.8rem; text-transform:uppercase; letter-spacing:0.08em;">The Ethos</div>
+      <h2 style="font-size:1.9rem; margin:6px 0 16px;">No roadmap. No promises. Just vibes and candles.</h2>
+      <p style="color:var(--text-dim);">
+        <span data-token-name>Ponscat</span> isn't trying to reinvent finance. It's a cat.
+        It watches charts. Sometimes the charts are green, and the cat is happy.
+        Sometimes they're red, and the cat watches anyway — because that's the job.
+      </p>
+      <ul class="about-points">
+        <li><span class="check">✓</span> No utility promises</li>
+        <li><span class="check">✓</span> No roadmap PDF</li>
+        <li><span class="check">✓</span> No "revolutionary tech"</li>
+        <li><span class="check">✓</span> Just a chart-obsessed cat and a community that likes green candles</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Built by <span data-community-name>Crypto Seekers Nation</span></h3>
+      <p>
+        A community of people who spend too much time looking at charts, decided to make a
+        mascot for it. <span data-token-name>Ponscat</span> is that mascot. It doesn't do anything.
+        That's the point.
+      </p>
+      <p>
+        If you're looking for a token with a 40-page whitepaper and a "utility" nobody uses,
+        this isn't it. If you're looking for a cat who takes chart-watching as seriously as you
+        do, welcome home.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="tokenomics">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Tokenomics</div>
+      <h2>Simple by design.</h2>
+      <p>No hidden taxes, no team vesting cliffhangers. Numbers below are placeholders until launch — check the CA above once it's live.</p>
+    </div>
+    <div class="tokenomics-grid">
+      <div class="card">
+        <h3>Total Supply</h3>
+        <p style="font-size:1.6rem; font-weight:700; color:var(--text);" data-supply>—</p>
+        <p>Fixed at launch. No minting, no surprises.</p>
+      </div>
+      <div class="card">
+        <h3>Liquidity</h3>
+        <p style="font-size:1.6rem; font-weight:700; color:var(--text);">Locked</p>
+        <p>LP locked at launch. Details posted in the community channels.</p>
+      </div>
+      <div class="card">
+        <h3>Tax</h3>
+        <p style="font-size:1.6rem; font-weight:700; color:var(--text);">0 / 0</p>
+        <p>No buy or sell tax. What you trade is what you keep.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="how-to-buy">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">How to Buy</div>
+      <h2>Get $PCAT in four steps.</h2>
+    </div>
+    <ol class="steps">
+      <li>
+        <div>
+          <strong>Get a wallet</strong>
+          <p>Download a wallet that supports the chain $PCAT launches on, and fund it with a bit of the native token for gas.</p>
+        </div>
+      </li>
+      <li>
+        <div>
+          <strong>Fund it</strong>
+          <p>Buy the native gas token from an exchange and send it to your wallet address.</p>
+        </div>
+      </li>
+      <li>
+        <div>
+          <strong>Copy the contract address</strong>
+          <p>Grab the CA from the hero section above (or our official socials) — never trust a CA from a random DM.</p>
+        </div>
+      </li>
+      <li>
+        <div>
+          <strong>Swap for $PCAT</strong>
+          <p>Paste the CA into your DEX of choice, set your slippage, and swap. Welcome to the couch.</p>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section id="memes">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Meme Gallery</div>
+      <h2>Community art goes here.</h2>
+      <p>Placeholder tiles for now — drop your best Ponscat memes in the community channels and we'll feature them.</p>
+    </div>
+    <div class="meme-grid">
+      <div class="meme-tile">Your meme here</div>
+      <div class="meme-tile">Your meme here</div>
+      <div class="meme-tile">Your meme here</div>
+      <div class="meme-tile">Your meme here</div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">FAQ</div>
+      <h2>Questions, answered honestly.</h2>
+    </div>
+    <details class="faq-item" open>
+      <summary>What does $PCAT actually do?</summary>
+      <p>It watches charts. That's it. There is no utility, and we're not going to pretend otherwise.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Is this financial advice?</summary>
+      <p>No. Nothing on this site is financial advice. Meme coins are extremely high risk — only ever spend what you can afford to lose.</p>
+    </details>
+    <details class="faq-item">
+      <summary>When does it launch?</summary>
+      <p>Follow our socials below for the announcement. The contract address will appear at the top of this page the moment it's live.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Who is Crypto Seekers Nation?</summary>
+      <p>The community behind Ponscat — people who watch charts for fun and decided a cat should get credit for it.</p>
+    </details>
+  </div>
+</section>
+
+<section id="community">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Join the Nation</div>
+      <h2>Come watch charts with us.</h2>
+    </div>
+    <div class="socials">
+      <a id="link-x" class="social-btn" href="#" target="_blank" rel="noopener">𝕏 Twitter / X</a>
+      <a id="link-telegram" class="social-btn" href="#" target="_blank" rel="noopener">Telegram</a>
+      <a id="link-discord" class="social-btn" href="#" target="_blank" rel="noopener">Discord</a>
+      <a id="link-buy" class="social-btn" href="#" target="_blank" rel="noopener">Buy $PCAT</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-grid">
+    <div>
+      <div class="foot-brand">
+        <img src="assets/favicon.svg" alt="" />
+        <span>Ponscat <span class="ticker" style="color:var(--green)">$PCAT</span></span>
+      </div>
+      <p class="disclaimer">
+        $PCAT is a meme token with no intrinsic value or expectation of financial return.
+        It is intended for entertainment purposes only. Cryptocurrency is highly volatile and
+        speculative — do your own research and never invest more than you can afford to lose.
+        Nothing on this site is financial advice.
+      </p>
+    </div>
+    <div class="socials">
+      <a id="link-x-footer" class="btn btn-outline btn-sm" href="#" target="_blank" rel="noopener">X</a>
+      <a id="link-telegram-footer" class="btn btn-outline btn-sm" href="#" target="_blank" rel="noopener">Telegram</a>
+    </div>
+  </div>
+</footer>
+
+<script src="js/config.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
