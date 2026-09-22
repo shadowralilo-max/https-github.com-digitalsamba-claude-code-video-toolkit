@@ -1,0 +1,18 @@
+{
+  "name": "meme-coin-auto-trader",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Autonomous meme-coin trading bot for AgentPump (Solana), with a hard total-loss circuit breaker.",
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "wallet": "node src/wallet.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.4"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
